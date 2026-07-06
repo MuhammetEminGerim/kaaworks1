@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KAA Works - Modern ve minimalist mimarlık ofisi. Mekanın ruhunu, sadeliğin gücüyle şekillendiriyoruz.">
+    <title>KAA Works | Modern & Minimalist Mimarlık Ofisi</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Grain Overlay -->
+    <div class="grain-overlay"></div>
+    <svg class="noise-svg" style="position: absolute; width: 0; height: 0; opacity: 0; pointer-events: none;">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+        </filter>
+    </svg>
+
+
+    <!-- Navigation Header -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#" class="logo" id="logo-link">
+                <span class="logo-text">KAA WORKS</span>
+            </a>
+            
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="#about" class="nav-link">Felsefe</a></li>
+                    <li><a href="#portfolio" class="nav-link">Projeler</a></li>
+                    <li><a href="#services" class="nav-link">What We Work</a></li>
+                    <li><a href="#team" class="nav-link">Ekibimiz</a></li>
+                    <li><a href="#contact" class="nav-link">İletişim</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Temayı Değiştir">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Menüyü Aç/Kapat">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay">
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#about" class="mobile-nav-link">Felsefe</a></li>
+                <li><a href="#portfolio" class="mobile-nav-link">Projeler</a></li>
+                <li><a href="#services" class="mobile-nav-link">What We Work</a></li>
+                <li><a href="#team" class="mobile-nav-link">Ekibimiz</a></li>
+                <li><a href="#contact" class="mobile-nav-link">İletişim</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="hero-bg" style="background-image: linear-gradient(to bottom, rgba(13, 13, 13, 0.4), rgba(13, 13, 13, 0.85)), url('./assets/hero_villa.png');"></div>
+            
+            <div class="hero-content container">
+                <div class="hero-meta reveal">
+                    <span class="meta-tag">MİMARİ ATÖLYE</span>
+                    <span class="meta-coords">LAT: 41.0082° N / LNG: 28.9784° E</span>
+                </div>
+                
+                <h1 class="hero-title reveal-text">
+                    <span>Mekanı Sadeleştir,</span>
+                    <span class="outline-text">Zamanı Şekillendir</span>
+                </h1>
+                
+                <p class="hero-subtitle reveal-text-slow">
+                    Doğal malzemeler, brüt yüzeyler ve dingin çizgilerle yaşam alanlarına rafine bir kimlik kazandırıyoruz.
+                </p>
+                
+                <div class="hero-cta-wrapper reveal">
+                    <a href="#portfolio" class="btn btn-primary magnetic" data-magnetic>
+                        <span>Projeleri İnceleyin</span>
+                        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <span class="scroll-text">AŞAĞI KAYDIR</span>
+                <div id="lottie-scroll" class="lottie-container"></div>
+            </div>
+        </section>
+
+        <!-- About/Philosophy Section -->
+        <section class="about-section section-padding" id="about">
+            <div class="container grid-container">
+                <div class="about-left reveal">
+                    <h2 class="section-title-large reveal-text">
+                        Sadeliğin <br><span class="highlight">Gücü</span>
+                    </h2>
+                </div>
+                
+                <div class="about-right reveal">
+                    <p class="lead-text reveal-text-slow">
+                        Gürültüyle dolu bir dünyada, sessiz ve dingin alanlar yaratmayı hedefliyoruz. Bizim için mimarlık, sadece duvarlar inşa etmek değil; ışık, malzeme ve boşluk arasındaki kusursuz dengeyi kurmaktır.
+                    </p>
+                    <p class="body-text reveal-text-slow">
+                        KAA Works olarak, karmaşıklıktan uzak, sürdürülebilir ve zamansız yapılar tasarlıyoruz. Her projede, yerel coğrafyanın dokusunu modern mimari dille harmanlayarak, kullanıcısına hem fiziksel hem de zihinsel bir sığınak sunuyoruz.
+                    </p>
+                    
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-num" data-val="12">0</span>
+                            <span class="stat-label">Yıllık Tecrübe</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num" data-val="45">0</span>
+                            <span class="stat-label">Tamamlanan Proje</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-num" data-val="8">0</span>
+                            <span class="stat-label">Uluslararası Ödül</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio-section section-padding" id="portfolio">
+            <div class="container">
+                <div class="section-header reveal">
+                    <div>
+                        <span class="section-subtitle">SEÇİLMİŞ ÇALIŞMALAR</span>
+                        <h2 class="section-title reveal-text">Portfolyo</h2>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="filter-wrapper">
+                        <button class="filter-btn active" data-filter="all">TÜMÜ</button>
+                        <button class="filter-btn" data-filter="residential">REZİDANS</button>
+                        <button class="filter-btn" data-filter="commercial">TİCARİ</button>
+                        <button class="filter-btn" data-filter="interior">İÇ MİMARİ</button>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid reveal">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card" data-category="residential" data-project="villa-pine">
+                        <div class="project-img-wrapper">
+                            <img src="./assets/hero_villa.png" alt="Villa Pine" class="project-img">
+                            <div class="project-overlay">
+                                <span class="project-view-btn">DETAYI GÖR</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-cat">Rezidanst / Orman Evi</span>
+                            <h3 class="project-title">Villa Pine</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card" data-category="residential" data-project="brutalist-horizon">
+                        <div class="project-img-wrapper">
+                            <img src="./assets/portfolio_residence.png" alt="Brutalist Horizon" class="project-img">
+                            <div class="project-overlay">
+                                <span class="project-view-btn">DETAYI GÖR</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-cat">Rezidanst / Sahil Evi</span>
+                            <h3 class="project-title">Brutalist Horizon</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card" data-category="commercial" data-project="cube-gallery">
+                        <div class="project-img-wrapper">
+                            <img src="./assets/portfolio_commercial.png" alt="Cube Gallery" class="project-img">
+                            <div class="project-overlay">
+                                <span class="project-view-btn">DETAYI GÖR</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-cat">Ticari / Sanat Galerisi</span>
+                            <h3 class="project-title">Cube Gallery</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card" data-category="interior" data-project="japandi-curation">
+                        <div class="project-img-wrapper">
+                            <img src="./assets/portfolio_interior.png" alt="Japandi Curation" class="project-img">
+                            <div class="project-overlay">
+                                <span class="project-view-btn">DETAYI GÖR</span>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-cat">İç Mimari / Penthouse</span>
+                            <h3 class="project-title">Japandi Curation</h3>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section section-padding" id="services">
+            <div class="container services-grid">
+                <!-- Column 1: Intro -->
+                <div class="services-left reveal">
+                    <span class="section-subtitle">WHAT WE WORK</span>
+                    <h2 class="section-title reveal-text">Hizmetlerimiz & Tasarım Süreci</h2>
+                    <p class="body-text">
+                        Her projeyi, konsept aşamasından anahtar teslimine kadar titizlikle takip ediyor, minimal estetikten taviz vermeden hayata geçiriyoruz. Felsefemizi fiziksel mekanlara dönüştüren stüdyo işlerimiz ve ekibimiz stüdyonun omurgasını oluşturur.
+                    </p>
+                </div>
+                
+                <!-- Column 2: Accordion -->
+                <div class="services-middle reveal">
+                    <!-- Interactive Accordion -->
+                    <div class="accordion">
+                        
+                        <div class="accordion-item active" data-service-img="./assets/service_architecture.png">
+                            <button class="accordion-header">
+                                <span class="acc-num">01</span>
+                                <span class="acc-title">Mimari Tasarım & Projelendirme</span>
+                                <span class="acc-icon"></span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Sıfırdan modern yapılar, sürdürülebilir konutlar ve yenilikçi ticari binalar tasarlıyoruz. Form ve fonksiyonun birlikteliğini önceliklendirerek çevreyle uyumlu yaşam alanları üretiyoruz.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item" data-service-img="./assets/service_interior.png">
+                            <button class="accordion-header">
+                                <span class="acc-num">02</span>
+                                <span class="acc-title">İç Mimari & Mekansal Kürasyon</span>
+                                <span class="acc-icon"></span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Mekanların ruhunu yansıtan minimalist iç mimari çözümler sunuyoruz. Özel mobilya tasarımları, doğal dokular ve aydınlatma tasarımı ile mekanlarda dinginlik ve konfor arıyoruz.</p>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item" data-service-img="./assets/service_management.png">
+                            <button class="accordion-header">
+                                <span class="acc-num">03</span>
+                                <span class="acc-title">Proje Yönetimi & Danışmanlık</span>
+                                <span class="acc-icon"></span>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Çizdiğimiz projelerin doğru malzeme ve yüksek işçilik kalitesiyle hayata geçirilmesini sağlıyoruz. Şantiye denetimi ve tedarik yönetimini üstlenerek süreci pürüzsüz kılıyoruz.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Column 3: Live Image Preview Box -->
+                <div class="services-right reveal">
+                    <div class="service-preview-box">
+                        <img id="active-service-img" src="./assets/service_architecture.png" alt="What We Work" class="service-preview-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section section-padding" id="team">
+            <div class="container reveal">
+                <span class="section-subtitle">EKİBİMİZ</span>
+                <h2 class="section-title reveal-text">Atölye Çalışanları</h2>
+                
+                <div class="team-grid">
+                    <!-- Member 1 -->
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="./assets/team_member1.png" alt="Canan Tekin" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Canan Tekin</h4>
+                            <span class="team-role">Kurucu Mimar / Tasarım Direktörü</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Member 2 -->
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="./assets/team_member2.png" alt="Oğuz Yılmaz" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Oğuz Yılmaz</h4>
+                            <span class="team-role">Kıdemli Mimar / Sürdürülebilirlik Uzmanı</span>
+                        </div>
+                    </div>
+
+                    <!-- Member 3 -->
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="./assets/team_member3.png" alt="Defne Kara" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Defne Kara</h4>
+                            <span class="team-role">İç Mimar / Detay Küratörü</span>
+                        </div>
+                    </div>
+
+                    <!-- Member 4 -->
+                    <div class="team-card">
+                        <div class="team-img-wrapper">
+                            <img src="./assets/team_member4.png" alt="Emre Can" class="team-img">
+                        </div>
+                        <div class="team-info">
+                            <h4 class="team-name">Emre Can</h4>
+                            <span class="team-role">Proje Yöneticisi / Şantiye Koordinatörü</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section section-padding" id="contact">
+            <div class="container grid-container">
+                
+                <!-- Contact Info -->
+                <div class="contact-info reveal">
+                    <span class="section-subtitle">BİRLİKTE ÇALIŞALIM</span>
+                    <h2 class="section-title reveal-text">Hayalinizdeki Mekanı Konuşalım</h2>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="detail-label">Stüdyo Adresi</span>
+                            <span class="detail-val">Karaköy, Kemankeş Cd. No:42, 34425 Beyoğlu/İstanbul</span>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <span class="detail-label">E-Posta</span>
+                            <span class="detail-val"><a href="mailto:info@ateliermono.com">info@ateliermono.com</a></span>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="detail-label">Telefon</span>
+                            <span class="detail-val"><a href="tel:+902125550000">+90 (212) 555 00 00</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper reveal">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Adınız Soyadınız</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">E-Posta Adresiniz</label>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                            <label for="message">Proje Detayları</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary magnetic" id="submit-btn" data-magnetic>
+                            <span>Mesajı Gönder</span>
+                            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                        
+                        <div class="form-status" id="form-status"></div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <span class="logo-text">KAA WORKS</span>
+                <p class="footer-desc">© 2026 KAA Works. Her hakkı saklıdır.</p>
+            </div>
+            
+            <div class="footer-socials">
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Pinterest</a>
+                <a href="#" class="social-link">Behance</a>
+                <a href="#" class="social-link">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div class="project-modal" id="project-modal" aria-hidden="true" role="dialog">
+        <div class="modal-backdrop"></div>
+        <div class="modal-wrapper">
+            <button class="modal-close-btn" id="modal-close" aria-label="Kapat">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-cat" id="modal-cat">Kategori</span>
+                    <h2 class="modal-title" id="modal-title">Proje Adı</h2>
+                </div>
+                
+                <div class="modal-grid">
+                    <div class="modal-image-container">
+                        <img src="" alt="" id="modal-img">
+                    </div>
+                    
+                    <div class="modal-details-container">
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Konum</span>
+                                <span class="spec-val" id="spec-loc">İstanbul</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Alan</span>
+                                <span class="spec-val" id="spec-area">350 m²</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Yıl</span>
+                                <span class="spec-val" id="spec-year">2025</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Müşteri</span>
+                                <span class="spec-val" id="spec-client">Özel Müşteri</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-description">
+                            <h4 class="desc-heading">Konsept Tasarımı</h4>
+                            <p id="modal-desc">Proje açıklaması buraya yüklenecektir.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Libraries (Next-Gen Stack CDNs) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+    <!-- Core Script -->
+    <script src="app.js"></script>
+</body>
+</html>
