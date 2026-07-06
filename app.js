@@ -210,7 +210,7 @@ function initThemeToggle() {
     const themeBtn = document.getElementById('theme-toggle');
     const body = document.body;
     
-    const savedTheme = localStorage.getItem('kaa-theme') || 'dark-theme';
+    const savedTheme = localStorage.getItem('kaa-theme') || 'light-theme';
     body.className = savedTheme;
 
     if (!themeBtn) return;
