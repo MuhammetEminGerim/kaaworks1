@@ -777,7 +777,6 @@ button, input, textarea {
     display: flex;
     gap: 30px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
     scrollbar-width: none;
     padding-bottom: 20px;
     scroll-behavior: smooth;
@@ -802,7 +801,6 @@ button, input, textarea {
 
 .project-slide-card {
     flex: 0 0 380px;
-    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     gap: 20px;

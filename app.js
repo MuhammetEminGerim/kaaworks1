@@ -310,7 +310,7 @@ function initStatsCounter() {
 }
 
 /* ==========================================================================
-   PORTFOLIO HORIZONTAL SLIDER (DRAG TO SCROLL)
+   PORTFOLIO HORIZONTAL SLIDER (DRAG TO SCROLL WITH INERTIA)
    ========================================================================== */
 function initPortfolioSlider() {
     const slider = document.getElementById('projects-slider');
@@ -322,44 +322,84 @@ function initPortfolioSlider() {
     let dragMoved = false;
     const dragThreshold = 5;
 
+    // Inertia physics variables
+    let velocity = 0;
+    let lastX = 0;
+    let lastTime = 0;
+    let animationFrameId = null;
+
+    const stopInertia = () => {
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+    };
+
+    const runInertia = () => {
+        if (Math.abs(velocity) < 0.1) {
+            slider.style.scrollBehavior = 'smooth';
+            return;
+        }
+        slider.scrollLeft -= velocity;
+        velocity *= 0.94; // Deceleration friction factor (0.92-0.95 is ideal)
+        animationFrameId = requestAnimationFrame(runInertia);
+    };
+
     slider.addEventListener('mousedown', (e) => {
         isDown = true;
         dragMoved = false;
+        stopInertia();
+
         slider.classList.add('active-drag');
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
-        
-        // Disable smooth behavior during drag for immediate responsiveness
-        slider.style.scrollBehavior = 'auto';
+
+        lastX = e.pageX;
+        lastTime = Date.now();
+        velocity = 0;
+
+        slider.style.scrollBehavior = 'auto'; // Instant response while grabbing
     });
 
     slider.addEventListener('mouseleave', () => {
+        if (!isDown) return;
         isDown = false;
         slider.classList.remove('active-drag');
-        slider.style.scrollBehavior = 'smooth';
+        runInertia();
     });
 
     slider.addEventListener('mouseup', () => {
+        if (!isDown) return;
         isDown = false;
         slider.classList.remove('active-drag');
-        slider.style.scrollBehavior = 'smooth';
+        runInertia();
     });
 
     slider.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         e.preventDefault();
-        
+
         const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 1.5; // Drag speed multiplier
-        
+        const walk = (x - startX) * 1.5; // Drag sensitivity multiplier
+
         if (Math.abs(walk) > dragThreshold) {
             dragMoved = true;
         }
-        
+
+        // Calculate velocity (pixels scrolled per millisecond/frame)
+        const now = Date.now();
+        const dt = now - lastTime;
+        if (dt > 0) {
+            velocity = (e.pageX - lastX) * 0.8; // Inertia force scalar
+        }
+
+        lastX = e.pageX;
+        lastTime = now;
+
         slider.scrollLeft = scrollLeft - walk;
     });
 
-    // Intercept clicks during capture phase if a drag occurred
+    // Prevent modal clicks when dragging, open modal on quick clean click
     const cards = slider.querySelectorAll('.project-slide-card');
     cards.forEach(card => {
         card.addEventListener('click', (e) => {
@@ -368,7 +408,7 @@ function initPortfolioSlider() {
                 e.stopPropagation();
                 e.stopImmediatePropagation();
             }
-        }, true);
+        }, true); // true sets capture phase to intercept click early
     });
 }
 
