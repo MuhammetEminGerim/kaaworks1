@@ -310,27 +310,65 @@ function initStatsCounter() {
 }
 
 /* ==========================================================================
-   PORTFOLIO HORIZONTAL SLIDER
+   PORTFOLIO HORIZONTAL SLIDER (DRAG TO SCROLL)
    ========================================================================== */
 function initPortfolioSlider() {
     const slider = document.getElementById('projects-slider');
-    const nextBtn = document.getElementById('slider-next-btn');
+    if (!slider) return;
 
-    if (!slider || !nextBtn) return;
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let dragMoved = false;
+    const dragThreshold = 5;
 
-    nextBtn.addEventListener('click', () => {
-        const firstCard = slider.querySelector('.project-slide-card');
-        if (!firstCard) return;
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        dragMoved = false;
+        slider.classList.add('active-drag');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
         
-        const cardWidth = firstCard.offsetWidth;
-        const gap = 30; // Matches CSS gap
+        // Disable smooth behavior during drag for immediate responsiveness
+        slider.style.scrollBehavior = 'auto';
+    });
 
-        // Loop back if at the end
-        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 30) {
-            slider.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-            slider.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('active-drag');
+        slider.style.scrollBehavior = 'smooth';
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('active-drag');
+        slider.style.scrollBehavior = 'smooth';
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1.5; // Drag speed multiplier
+        
+        if (Math.abs(walk) > dragThreshold) {
+            dragMoved = true;
         }
+        
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    // Intercept clicks during capture phase if a drag occurred
+    const cards = slider.querySelectorAll('.project-slide-card');
+    cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            if (dragMoved) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            }
+        }, true);
     });
 }
 
