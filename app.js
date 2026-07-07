@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initScrollReveal();
     initStatsCounter();
-    initPortfolioFilter();
+    initPortfolioSlider();
     initProjectModal(lenis);
     initMagneticButtons();
     initContactForm();
@@ -123,8 +123,8 @@ function initGSAPAnimations(lenis) {
     });
 
     // 3. Portfolio parallax effect on project card images
-    document.querySelectorAll('.project-card').forEach(card => {
-        const img = card.querySelector('.project-img');
+    document.querySelectorAll('.project-slide-card').forEach(card => {
+        const img = card.querySelector('.slide-img');
         if (!img) return;
 
         gsap.to(img, {
@@ -310,39 +310,27 @@ function initStatsCounter() {
 }
 
 /* ==========================================================================
-   PORTFOLIO FILTERING
+   PORTFOLIO HORIZONTAL SLIDER
    ========================================================================== */
-function initPortfolioFilter() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+function initPortfolioSlider() {
+    const slider = document.getElementById('projects-slider');
+    const nextBtn = document.getElementById('slider-next-btn');
 
-    if (filterBtns.length === 0 || projectCards.length === 0) return;
+    if (!slider || !nextBtn) return;
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    nextBtn.addEventListener('click', () => {
+        const firstCard = slider.querySelector('.project-slide-card');
+        if (!firstCard) return;
+        
+        const cardWidth = firstCard.offsetWidth;
+        const gap = 30; // Matches CSS gap
 
-            const filterValue = btn.getAttribute('data-filter');
-
-            projectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-
-                if (filterValue === 'all' || category === filterValue) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 50);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.96)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 350);
-                }
-            });
-        });
+        // Loop back if at the end
+        if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 30) {
+            slider.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            slider.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+        }
     });
 }
 
@@ -395,7 +383,7 @@ const projectData = {
 function initProjectModal(lenis) {
     const modal = document.getElementById('project-modal');
     const closeBtn = document.getElementById('modal-close');
-    const cards = document.querySelectorAll('.project-card');
+    const cards = document.querySelectorAll('.project-slide-card');
     
     const modalTitle = document.getElementById('modal-title');
     const modalCat = document.getElementById('modal-cat');

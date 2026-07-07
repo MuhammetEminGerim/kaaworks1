@@ -157,78 +157,82 @@
 
         <!-- Portfolio Section -->
         <section class="portfolio-section section-padding" id="portfolio">
-            <div class="container">
-                <div class="section-header reveal">
-                    <div>
-                        <span class="section-subtitle">SEÇİLMİŞ ÇALIŞMALAR</span>
-                        <h2 class="section-title reveal-text">Portfolyo</h2>
-                    </div>
-                    
-                    <!-- Filter Buttons -->
-                    <div class="filter-wrapper">
-                        <button class="filter-btn active" data-filter="all">TÜMÜ</button>
-                        <button class="filter-btn" data-filter="residential">REZİDANS</button>
-                        <button class="filter-btn" data-filter="commercial">TİCARİ</button>
-                        <button class="filter-btn" data-filter="interior">İÇ MİMARİ</button>
-                    </div>
+            <div class="container portfolio-header-grid reveal">
+                <div class="portfolio-header-left">
+                    <h2 class="portfolio-section-title">
+                        What's new <br> at KAA
+                    </h2>
                 </div>
+                <div class="portfolio-header-right">
+                    <span class="portfolio-meta-label">— Projects</span>
+                    <p class="portfolio-header-desc">
+                        Selected architectural works, ongoing construction, and design insights from KAA Works — stay in the loop.
+                    </p>
+                </div>
+            </div>
 
-                <!-- Projects Grid -->
-                <div class="projects-grid reveal">
-                    
+            <!-- Slider Wrapper -->
+            <div class="slider-wrapper reveal">
+                <!-- Navigation Button -->
+                <button class="slider-nav-btn" id="slider-next-btn" aria-label="Sonraki Proje">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+
+                <div class="projects-slider" id="projects-slider" data-lenis-prevent>
                     <!-- Project 1 -->
-                    <div class="project-card" data-category="residential" data-project="villa-pine">
-                        <div class="project-img-wrapper">
-                            <img src="./assets/hero_villa.png" alt="Villa Pine" class="project-img">
-                            <div class="project-overlay">
-                                <span class="project-view-btn">DETAYI GÖR</span>
-                            </div>
+                    <div class="project-slide-card" data-project="villa-pine">
+                        <div class="slide-img-wrapper">
+                            <img src="./assets/hero_villa.png" alt="Villa Pine" class="slide-img">
                         </div>
-                        <div class="project-info">
-                            <span class="project-cat">Rezidanst / Orman Evi</span>
-                            <h3 class="project-title">Villa Pine</h3>
+                        <div class="slide-info">
+                            <span class="slide-meta">Projects, March 2026</span>
+                            <p class="slide-desc">Our Villa Pine project is shortlisted in 20th National Architecture Awards in Building Category. Designed in 2022, finished in late 2025.</p>
                         </div>
                     </div>
-                    
+
                     <!-- Project 2 -->
-                    <div class="project-card" data-category="residential" data-project="brutalist-horizon">
-                        <div class="project-img-wrapper">
-                            <img src="./assets/portfolio_residence.png" alt="Brutalist Horizon" class="project-img">
-                            <div class="project-overlay">
-                                <span class="project-view-btn">DETAYI GÖR</span>
-                            </div>
+                    <div class="project-slide-card" data-project="brutalist-horizon">
+                        <div class="slide-img-wrapper">
+                            <img src="./assets/portfolio_residence.png" alt="Brutalist Horizon" class="slide-img">
                         </div>
-                        <div class="project-info">
-                            <span class="project-cat">Rezidanst / Sahil Evi</span>
-                            <h3 class="project-title">Brutalist Horizon</h3>
+                        <div class="slide-info">
+                            <span class="slide-meta">Projects, January 2026</span>
+                            <p class="slide-desc">Brutalist Horizon: Sculptural concrete masses embracing the Aegean coastline of Izmir. Construction nearing completion.</p>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
-                    <div class="project-card" data-category="commercial" data-project="cube-gallery">
-                        <div class="project-img-wrapper">
-                            <img src="./assets/portfolio_commercial.png" alt="Cube Gallery" class="project-img">
-                            <div class="project-overlay">
-                                <span class="project-view-btn">DETAYI GÖR</span>
-                            </div>
+                    <div class="project-slide-card" data-project="cube-gallery">
+                        <div class="slide-img-wrapper">
+                            <img src="./assets/portfolio_commercial.png" alt="Cube Gallery" class="slide-img">
                         </div>
-                        <div class="project-info">
-                            <span class="project-cat">Ticari / Sanat Galerisi</span>
-                            <h3 class="project-title">Cube Gallery</h3>
+                        <div class="slide-info">
+                            <span class="slide-meta">Projects, January 2026</span>
+                            <p class="slide-desc">Cube Gallery: Transforming a historic industrial warehouse into a contemporary art hub in Karaköy, Istanbul.</p>
                         </div>
                     </div>
 
-                    <!-- Project 4 -->
-                    <div class="project-card" data-category="interior" data-project="japandi-curation">
-                        <div class="project-img-wrapper">
-                            <img src="./assets/portfolio_interior.png" alt="Japandi Curation" class="project-img">
-                            <div class="project-overlay">
-                                <span class="project-view-btn">DETAYI GÖR</span>
-                            </div>
+                    <!-- Project 4 (Solid Burgundy Card) -->
+                    <div class="project-slide-card text-only-card">
+                        <div class="slide-text-box">
+                            <h3>Construction began in Al Wahda Hospital, which was under re-construction. It will be opening its doors in late 2026.</h3>
                         </div>
-                        <div class="project-info">
-                            <span class="project-cat">İç Mimari / Penthouse</span>
-                            <h3 class="project-title">Japandi Curation</h3>
+                        <div class="slide-info">
+                            <span class="slide-meta">Projects, August 2025</span>
+                            <p class="slide-desc">Construction phase began in Al Wahda Hospital Block E, KAA Works' first healthcare project in Libya. Designated as the mother and child care block.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-slide-card" data-project="japandi-curation">
+                        <div class="slide-img-wrapper">
+                            <img src="./assets/portfolio_interior.png" alt="Japandi Curation" class="slide-img">
+                        </div>
+                        <div class="slide-info">
+                            <span class="slide-meta">Projects, June 2025</span>
+                            <p class="slide-desc">Japandi Curation: A serene penthouse apartment balancing Scandinavian functionality and Japanese minimalism in Nisantasi.</p>
                         </div>
                     </div>
 
