@@ -1037,8 +1037,10 @@ button, input, textarea {
    FOOTER SECTION
    ========================================================================== */
 .site-footer {
-    border-top: 1px solid var(--border-color);
-    padding: 60px 0;
+    background-color: color-mix(in srgb, var(--accent) 75%, #000000);
+    padding: 80px 0;
+    color: #ffffff;
+    transition: background-color 0.8s ease;
 }
 
 .footer-content {
@@ -1049,11 +1051,12 @@ button, input, textarea {
 
 .footer-logo .logo-text {
     font-size: 16px;
+    color: #ffffff;
 }
 
 .footer-desc {
     font-size: 12px;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.65);
     margin-top: 8px;
 }
 
@@ -1065,13 +1068,14 @@ button, input, textarea {
 .social-link {
     font-size: 13px;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    transition: var(--transition-fast);
 }
 
 .social-link:hover {
-    color: var(--accent);
+    color: #ffffff;
 }
 
 /* ==========================================================================
